@@ -4,13 +4,23 @@ const ErrorHandler = require('../utils/errorHandler.js')
 const APIFeatures = require('../utils/apiFeatures.js')
 
 exports.getProducts = catchAsyncError(async (req, res, next) => {
+
+    const resPerPage = 5;
+    // For Count Documents
+    const productsCount = await Product.countDocuments();
+
     const apifeatures = new APIFeatures(Product.find(), req.query)
         .search()
         .filter()
-    const Products = await apifeatures.query
+        .pagination(resPerPage)
+    const Products = await apifeatures.query;
+    const filteredProductsCount = Products.length;
+
     res.status(200).json({
         success: true,
-        message: Products
+        message: Products,
+        filteredProductsCount,
+        productsCount
     })
 }
 )
