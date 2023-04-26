@@ -4,7 +4,7 @@ const router = express.Router();
 const {
     addNewOrder,
     getSingleOrder,
-    // myOrders,
+    myOrders,
     // allOrders,
     // updateOrder,
     // deleteOrder
@@ -16,7 +16,7 @@ const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/checkAut
 router.route('/order/new').post(isAuthenticatedUser, addNewOrder);
 
 router.route('/order/:id').get(isAuthenticatedUser, getSingleOrder);
-// router.route('/orders/me').get(isAuthenticatedUser, myOrders);
+router.route('/orders/me').get(isAuthenticatedUser, myOrders);
 
 // router.route('/admin/orders/').get(isAuthenticatedUser, authorizeRoles('admin'), allOrders);
 // router.route('/admin/order/:id')
