@@ -6,8 +6,8 @@ const {
     getSingleOrder,
     myOrders,
     allOrders,
-    // updateOrder,
-    // deleteOrder
+    updateOrder,
+    deleteOrder
 
 } = require('../controllers/orderController')
 
@@ -19,8 +19,8 @@ router.route('/order/:id').get(isAuthenticatedUser, getSingleOrder);
 router.route('/orders/me').get(isAuthenticatedUser, myOrders);
 
 router.route('/admin/orders/').get(isAuthenticatedUser, authorizeRoles('admin'), allOrders);
-// router.route('/admin/order/:id')
-//     .put(isAuthenticatedUser, authorizeRoles('admin'), updateOrder)
-//     .delete(isAuthenticatedUser, authorizeRoles('admin'), deleteOrder);
+router.route('/admin/order/:id')
+    .put(isAuthenticatedUser, authorizeRoles('admin'), updateOrder)
+    .delete(isAuthenticatedUser, authorizeRoles('admin'), deleteOrder);
 
 module.exports = router;
