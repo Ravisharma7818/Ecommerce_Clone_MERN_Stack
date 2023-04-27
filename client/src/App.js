@@ -1,14 +1,21 @@
 import './App.css';
+import React, { useEffect } from 'react'
+
 import Home from './components/Home';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
       <Header />
-      <Home />
+      <Routes>
+        <Route element={<Home />} path="/" />
+      </Routes>
       <Footer />
+
+
     </>
   );
 }
