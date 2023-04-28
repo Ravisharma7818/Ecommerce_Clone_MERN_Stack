@@ -16,8 +16,7 @@ export const getProducts = () => async (dispatch) => {
             type: ALL_PRODUCTS_REQUEST,
 
         })
-        const { data } = await axios.get('/api/v1/products')
-        console.log(data);
+        const { data } = await axios.get('api/v1/products')
 
         // Dispatch Action
         dispatch({
@@ -28,7 +27,7 @@ export const getProducts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_PRODUCTS_FAIL,
-            payload: error.respose.data.message
+            payload: error
         })
     }
 }

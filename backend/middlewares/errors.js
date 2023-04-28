@@ -1,9 +1,12 @@
-const ErrorHandler = require("../utils/errorHandler")
+const ErrorHandler = require('../utils/errorHandler');
+
 
 module.exports = (err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
 
     if (process.env.NODE_ENV === 'DEVELOPMENT') {
+        console.log(err);
+
         res.status(err.statusCode).json({
             success: false,
             error: err,
@@ -11,15 +14,12 @@ module.exports = (err, req, res, next) => {
             stack: err.stack
         })
     }
+
     if (process.env.NODE_ENV === 'PRODUCTION') {
         let error = { ...err }
 
-        error.message = err.message
-        res.status(error.statusCode).json({
-            success: false,
-            error: err.message || 'Internal Server Error'
+        error.message = err.message;
 
-        })
         // Wrong Mongoose Object ID Error
         if (err.name === 'CastError') {
             const message = `Resource not found. Invalid: ${err.path}`
@@ -37,7 +37,6 @@ module.exports = (err, req, res, next) => {
             const message = `Duplicate ${Object.keys(err.keyValue)} entered`
             error = new ErrorHandler(message, 400)
         }
-
 
         // Handling wrong JWT error
         if (err.name === 'JsonWebTokenError') {
