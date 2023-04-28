@@ -4,7 +4,7 @@ const ErrorHandler = require('../utils/errorHandler.js')
 const APIFeatures = require('../utils/apiFeatures.js')
 
 exports.getProducts = catchAsyncError(async (req, res, next) => {
-    return next(new ErrorHandler('Error', 400));
+    // return next(new ErrorHandler('Error', 400));
 
     const resPerPage = 12;
     // For Count Documents
