@@ -3,10 +3,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger';
 import { productReducers } from './reducers/productReducers';
-
+import { productDetailsReducer } from './reducers/productReducers';
 
 const rootReducer = combineReducers({
-    products: productReducers
+    products: productReducers,
+    productDetails: productDetailsReducer
 })
 
 
