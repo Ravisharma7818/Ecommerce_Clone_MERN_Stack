@@ -10,7 +10,7 @@ const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/checkAut
 
 
 router.route('/products').get(getProducts);
-router.route('/products/:id').get(getSingleProduct);
+router.route('/product/:id').get(getSingleProduct);
 
 router.route('/admin/product/new').post(isAuthenticatedUser, authorizeRoles('admin'), addNewProduct);
 

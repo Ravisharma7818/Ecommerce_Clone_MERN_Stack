@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import { Routes, Route } from 'react-router-dom'
+import ProductDetails from './components/product/ProductDetails';
 // import { useSelector } from "react-redux";
 // import { getProducts } from './actions/productActions';
 
@@ -25,6 +26,8 @@ function App() {
       <Header />
       <Routes>
         <Route element={<Home />} path="/" />
+        <Route element={<ProductDetails />} path="/product/:id" />
+
       </Routes>
       <Footer />
 
