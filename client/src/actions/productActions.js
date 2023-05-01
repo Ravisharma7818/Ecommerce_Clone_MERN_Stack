@@ -13,20 +13,31 @@ import {
 
 
 
-export const getProducts = (currentPage = 1) => async (dispatch) => {
+export const getProducts = (currentPage = 1, keyword = '', price, category, rating) => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCTS_REQUEST,
 
         })
-        console.log('actionPageNumber', currentPage);
-        const { data } = await axios.get(`/api/v1/products?page=${currentPage}`)
+        if (category) {
+            const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}}&ratings[gte]=${rating}`)
 
-        // Dispatch Action
-        dispatch({
-            type: ALL_PRODUCTS_SUCCESS,
-            payload: data
-        })
+
+            dispatch({
+                type: ALL_PRODUCTS_SUCCESS,
+                payload: data,
+            });
+        }
+        else {
+
+            const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}}&ratings[gte]=${rating}`)
+
+
+            dispatch({
+                type: ALL_PRODUCTS_SUCCESS,
+                payload: data,
+            });
+        }
 
     } catch (error) {
         dispatch({
