@@ -20,7 +20,7 @@ export const getProducts = (currentPage = 1, keyword = '', price, category, rati
 
         })
         if (category) {
-            const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}}&ratings[gte]=${rating}`)
+            const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}&category=${category}&ratings[gte]=${rating}`)
 
 
             dispatch({
