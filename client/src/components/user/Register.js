@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import MetaData from '../layout/MetaData'
 
@@ -70,7 +70,7 @@ const Register = () => {
     }
 
     return (
-        <Fragment>
+        <>
 
             <MetaData title={'Register User'} />
 
@@ -155,7 +155,7 @@ const Register = () => {
                 </div>
             </div>
 
-        </Fragment>
+        </>
     )
 }
 
