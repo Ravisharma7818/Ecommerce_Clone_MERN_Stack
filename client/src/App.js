@@ -12,6 +12,7 @@ import { loadUser } from './actions/userActions';
 import Profile from './components/user/Profile';
 import ProtectedRoute from './components/routes/ProtectedRoute';
 import UpdateProfile from './components/user/UpdateProfile';
+import UpdatePassword from './components/user/UpdatePassword';
 function App() {
 
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
         <Route element={<ProtectedRoute> <UpdateProfile /> </ProtectedRoute>} path="/me/update" />
 
 
+        <Route element={<ProtectedRoute> <UpdatePassword /> </ProtectedRoute>} path="/password/update" />
 
 
       </Routes>
