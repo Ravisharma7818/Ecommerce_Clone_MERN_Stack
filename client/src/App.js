@@ -10,6 +10,8 @@ import Register from './components/user/Register';
 import store from './store'
 import { loadUser } from './actions/userActions';
 import Profile from './components/user/Profile';
+import ProtectedRoute from './components/routes/ProtectedRoute';
+import UpdateProfile from './components/user/UpdateProfile';
 function App() {
 
   useEffect(() => {
@@ -33,7 +35,10 @@ function App() {
         <Route element={<Register />} path="/register" />
 
         {/* User Profile */}
-        <Route element={<Profile />} path="/me" />
+        <Route element={<ProtectedRoute> <Profile /> </ProtectedRoute>} path="/me" />
+
+        <Route element={<ProtectedRoute> <UpdateProfile /> </ProtectedRoute>} path="/me/update" />
+
 
 
 
