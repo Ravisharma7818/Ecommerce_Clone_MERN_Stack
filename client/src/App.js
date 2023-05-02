@@ -7,20 +7,9 @@ import Header from './components/layout/Header';
 import { Routes, Route } from 'react-router-dom'
 import ProductDetails from './components/product/ProductDetails';
 import Login from './components/user/Login';
-// import { useSelector } from "react-redux";
-// import { getProducts } from './actions/productActions';
+import Register from './components/user/Register';
 
 function App() {
-  // const { products } = useSelector(state => state.products)
-
-  // const dispatch = useDispatch();
-  // // Get All Products
-  // useEffect(() => {
-  //   dispatch(getProducts());
-
-
-  // }, [dispatch])
-  // console.log(products);
 
   return (
     <>
@@ -33,6 +22,8 @@ function App() {
 
         {/* User Routes */}
         <Route element={<Login />} path="/login" />
+        <Route element={<Register />} path="/register" />
+
 
       </Routes>
       <Footer />
