@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import { Routes, Route } from 'react-router-dom'
 import ProductDetails from './components/product/ProductDetails';
+import Login from './components/user/Login';
 // import { useSelector } from "react-redux";
 // import { getProducts } from './actions/productActions';
 
@@ -28,6 +29,10 @@ function App() {
         <Route element={<Home />} path="/" />
         <Route element={<Home />} path="/search/:keyword" />
         <Route element={<ProductDetails />} path="/product/:id" />
+
+
+        {/* User Routes */}
+        <Route element={<Login />} path="/login" />
 
       </Routes>
       <Footer />
