@@ -9,6 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 const NewPassword = () => {
 
     const [password, setPassword] = useState('')
+
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const alert = useAlert();
