@@ -2,6 +2,7 @@
 const app = require('./app')
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config({ path: 'backend/.env' });
+const cloudinary = require('cloudinary');
 
 
 mongoose.connect("mongodb://localhost:27017/ShopHere", {
@@ -9,6 +10,15 @@ mongoose.connect("mongodb://localhost:27017/ShopHere", {
     useUnifiedTopology: true
 }).then(console.log('Connected Success')).catch((err) => console.log(err));
 
+
+
+// Set Cloudinary Configuration 
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 
 const server = app.listen(process.env.PORT, () => {
