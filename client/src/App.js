@@ -32,6 +32,9 @@ function App() {
         <Route element={<Login />} path="/login" />
         <Route element={<Register />} path="/register" />
 
+        {/* User Profile */}
+        <Route element={<Profile />} path="/me" />
+
 
 
       </Routes>
