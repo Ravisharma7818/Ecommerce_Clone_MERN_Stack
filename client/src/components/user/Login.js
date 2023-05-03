@@ -7,6 +7,7 @@ import MetaData from '../layout/MetaData'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors } from '../../actions/userActions'
+import { useLocation } from 'react-router-dom';
 const Login = () => {
 
     const [email, setEmail] = useState('');
@@ -15,14 +16,15 @@ const Login = () => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const Navigate = useNavigate();
-
+    const location = useLocation();
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
 
+    const redirect = location.search ? `/${location.search.split('=')[1]}` : '/'
 
     useEffect(() => {
 
         if (isAuthenticated) {
-            Navigate('/')
+            Navigate(redirect)
         }
 
         if (error) {
@@ -30,7 +32,7 @@ const Login = () => {
             dispatch(clearErrors());
         }
 
-    }, [dispatch, alert, isAuthenticated, error, Navigate])
+    }, [dispatch, alert, isAuthenticated, redirect, error, Navigate])
 
     const submitHandler = (e) => {
         e.preventDefault();
