@@ -14,6 +14,7 @@ const cookieParser = require('cookie-parser')
 const products = require('./routes/product');
 const user = require('./routes/user');
 const order = require('./routes/order');
+const payment = require('./routes/payment');
 
 
 
@@ -28,6 +29,7 @@ app.use(fileUpload());
 app.use('/api/v1', products);
 app.use('/api/v1', user);
 app.use('/api/v1', order);
+app.use('/api/v1', payment)
 
 
 // Position is Fixed Here After Routes 
