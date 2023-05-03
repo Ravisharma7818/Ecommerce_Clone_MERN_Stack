@@ -6,6 +6,7 @@ import { useAlert } from 'react-alert'
 import Loader from '../layout/Loader';
 import MetaData from '../layout/MetaData';
 import { Carousel } from 'react-bootstrap'
+import { addItemToCart } from '../../actions/cartActions';
 
 const ProductDetails = () => {
     const alert = useAlert()
@@ -49,6 +50,11 @@ const ProductDetails = () => {
     }
 
 
+    const addToCart = () => {
+        dispatch(addItemToCart(id, quantity));
+        alert.success('Item Added to Cart')
+    }
+
 
     return (
         <>
@@ -90,7 +96,7 @@ const ProductDetails = () => {
 
                                     <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                                 </div>
-                                <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
+                                <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.stock === 0} onClick={addToCart}>Add to Cart</button>
 
                                 <hr />
 

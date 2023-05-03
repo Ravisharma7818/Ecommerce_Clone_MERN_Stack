@@ -15,6 +15,7 @@ import UpdateProfile from './components/user/UpdateProfile';
 import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPassword';
 import NewPassword from './components/user/NewPassword';
+import Cart from './components/cart/Cart';
 function App() {
 
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
         <Route element={<Home />} path="/" />
         <Route element={<Home />} path="/search/:keyword" />
         <Route element={<ProductDetails />} path="/product/:id" />
+        <Route element={<Cart />} path="/cart" />
 
 
         {/* User Routes */}

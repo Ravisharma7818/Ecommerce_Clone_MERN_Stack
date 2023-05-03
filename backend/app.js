@@ -4,6 +4,7 @@ const app = express();
 const errorMiddleware = require('./middlewares/errors')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
+const dotenv = require('dotenv').config({ path: 'backend/.env' });
 
 const cookieParser = require('cookie-parser')
 
