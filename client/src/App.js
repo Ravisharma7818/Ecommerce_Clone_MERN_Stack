@@ -55,7 +55,7 @@ function App() {
         {/* Shipping*/}
         <Route element={<ProtectedRoute> <Shipping /> </ProtectedRoute>} path="/shipping" />
 
-        <Route element={<ProtectedRoute> <ConfirmOrder /> </ProtectedRoute>} path="/confirm" />
+        <Route element={<ProtectedRoute> <ConfirmOrder /> </ProtectedRoute>} path="/order/confirm" />
 
       </Routes>
       <Footer />
