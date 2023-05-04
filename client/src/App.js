@@ -18,11 +18,11 @@ import NewPassword from './components/user/NewPassword';
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
+import Payment from './components/cart/Payment';
 import axios from 'axios';
 // Payment
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
-import Payment from './components/cart/Payment';
 
 
 
@@ -73,11 +73,16 @@ function App() {
 
         <Route element={<ProtectedRoute> <ConfirmOrder /> </ProtectedRoute>} path="/order/confirm" />
 
-        {stripeApiKey &&
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <Route element={<ProtectedRoute> <Payment /> </ProtectedRoute>} path="/payment" />
-          </Elements>
-        }
+        {stripeApiKey && (
+          <Route
+            path="/payment"
+            element={(
+              <Elements stripe={loadStripe(stripeApiKey)}>
+                <Payment />
+              </Elements>
+            )}
+          />
+        )}
       </Routes>
       <Footer />
 
