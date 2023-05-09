@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger';
 import { newReviewReducer, productsReducer, productReviewsReducer, reviewReducer, newProductReducer, productReducer } from './reducers/productReducers';
 import { productDetailsReducer } from './reducers/productReducers';
-import { authReducer, forgotPasswordReducer, userReducer } from './reducers/userReducer';
+import { allUsersReducer, authReducer, forgotPasswordReducer, userDetailsReducer, userReducer } from './reducers/userReducer';
 import { cartReducer } from './reducers/cartReducers';
 import { allOrdersReducer, myOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer } from './reducers/orderReducers';
 
@@ -13,6 +13,8 @@ const rootReducer = combineReducers({
     productDetails: productDetailsReducer,
     auth: authReducer,
     user: userReducer,
+    allUsers: allUsersReducer,
+    userDetails: userDetailsReducer,
     forgotPassword: forgotPasswordReducer,
     cart: cartReducer,
     newOrder: newOrderReducer,
