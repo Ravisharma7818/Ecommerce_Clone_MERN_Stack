@@ -31,6 +31,8 @@ import ProductsList from './components/admin/ProductsList';
 import NewProduct from './components/admin/NewProduct';
 import { useSelector } from 'react-redux'
 import UpdateProduct from './components/admin/UpdateProduct';
+import OrdersList from './components/admin/OrdersList';
+import ProcessOrder from './components/admin/ProcessOrder';
 
 
 
@@ -93,6 +95,8 @@ function App() {
         <Route element={<ProtectedRoute> <ProductsList /> </ProtectedRoute>} isAdmin={true} path="/admin/products" />
         <Route element={<ProtectedRoute> <NewProduct /> </ProtectedRoute>} isAdmin={true} path="/admin/product" />
         <Route element={<ProtectedRoute> <UpdateProduct /> </ProtectedRoute>} isAdmin={true} path="/admin/product/:id" />
+        <Route element={<ProtectedRoute> <OrdersList /> </ProtectedRoute>} isAdmin={true} path="/admin/orders" />
+        <Route element={<ProtectedRoute> <ProcessOrder /> </ProtectedRoute>} isAdmin={true} path="/admin/order/:id" />
 
         {stripeApiKey && (
           <Route
