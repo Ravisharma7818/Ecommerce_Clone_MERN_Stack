@@ -36,9 +36,10 @@ import {
 
 } from '../constants/productConstant'
 
-export const productReducers = (state = { products: [] }, action) => {
+export const productsReducer = (state = { products: [] }, action) => {
     switch (action.type) {
         case ALL_PRODUCTS_REQUEST:
+        case ADMIN_PRODUCTS_REQUEST:
             return {
                 loading: true,
                 products: []
@@ -50,25 +51,127 @@ export const productReducers = (state = { products: [] }, action) => {
                 products: action.payload.products,
                 productsCount: action.payload.productsCount,
                 resPerPage: action.payload.resPerPage,
-
-
+                filteredProductsCount: action.payload.filteredProductsCount
             }
+
+        case ADMIN_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload
+            }
+
         case ALL_PRODUCTS_FAIL:
+        case ADMIN_PRODUCTS_FAIL:
             return {
                 loading: false,
                 error: action.payload
             }
+
         case CLEAR_ERRORS:
             return {
                 ...state,
                 error: null
             }
+
+        default:
+            return state;
+    }
+}
+
+export const productReducer = (state = {}, action) => {
+    switch (action.type) {
+
+        case DELETE_PRODUCT_REQUEST:
+        case UPDATE_PRODUCT_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        case UPDATE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isUpdated: action.payload
+            }
+
+
+        case DELETE_PRODUCT_FAIL:
+        case UPDATE_PRODUCT_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+        case DELETE_PRODUCT_RESET:
+            return {
+                ...state,
+                isDeleted: false
+            }
+
+        case UPDATE_PRODUCT_RESET:
+            return {
+                ...state,
+                isUpdated: false
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
         default:
             return state
     }
 }
 
 
+export const newProductReducer = (state = { product: {} }, action) => {
+    switch (action.type) {
+
+        case NEW_PRODUCT_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case NEW_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                success: action.payload.success,
+                product: action.payload.product
+            }
+
+        case NEW_PRODUCT_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+        case NEW_PRODUCT_RESET:
+            return {
+                ...state,
+                success: false
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
 
 
 export const productDetailsReducer = (state = { product: {} }, action) => {

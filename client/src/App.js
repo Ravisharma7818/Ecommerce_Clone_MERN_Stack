@@ -26,8 +26,14 @@ import { loadStripe } from '@stripe/stripe-js'
 import OrderSuccess from './components/cart/OrderSuccess';
 import ListOrders from './components/order/ListOrders';
 import OrderDetails from './components/order/OrderDetails';
+import Dashboard from './components/admin/Dashboard';
+import ProductsList from './components/admin/ProductsList';
+import NewProduct from './components/admin/NewProduct';
+import { useSelector } from 'react-redux'
 
 
+
+// Admin 
 
 
 
@@ -45,6 +51,7 @@ function App() {
     getStripApiKey();
   }, [])
 
+  const { user, isAuthenticated, loading } = useSelector(state => state.auth)
 
   return (
     <>
@@ -79,8 +86,11 @@ function App() {
         <Route element={<ProtectedRoute> <ListOrders /> </ProtectedRoute>} path="/orders/me" />
         <Route element={<ProtectedRoute> <OrderDetails /> </ProtectedRoute>} path="/order/:id" />
 
+        {/* Admin */}
 
-
+        <Route element={<ProtectedRoute> <Dashboard /> </ProtectedRoute>} isAdmin={true} path="/dashboard" />
+        <Route element={<ProtectedRoute> <ProductsList /> </ProtectedRoute>} isAdmin={true} path="/admin/products" />
+        <Route element={<ProtectedRoute> <NewProduct /> </ProtectedRoute>} isAdmin={true} path="/admin/product" />
 
         {stripeApiKey && (
           <Route
@@ -93,12 +103,14 @@ function App() {
           />
         )}
       </Routes>
-
-      <Footer />
+      {!loading && (!isAuthenticated || user.role !== 'admin') && (
+        <Footer />
+      )}
+      {/* <Footer /> */}
 
 
     </>
   );
 }
 
-export default App;
+export default App; 
