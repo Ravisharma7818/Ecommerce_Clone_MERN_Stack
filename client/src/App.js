@@ -35,6 +35,7 @@ import OrdersList from './components/admin/OrdersList';
 import ProcessOrder from './components/admin/ProcessOrder';
 import UsersList from './components/admin/UsersList';
 import UpdateUser from './components/admin/UpdateUser';
+import ProductReviews from './components/admin/ProductReviews';
 
 
 
@@ -101,6 +102,7 @@ function App() {
         <Route element={<ProtectedRoute> <ProcessOrder /> </ProtectedRoute>} isAdmin={true} path="/admin/order/:id" />
         <Route element={<ProtectedRoute> <UsersList /> </ProtectedRoute>} isAdmin={true} path="/admin/users" />
         <Route element={<ProtectedRoute> <UpdateUser /> </ProtectedRoute>} isAdmin={true} path="/admin/user/:id" />
+        <Route element={<ProtectedRoute> <ProductReviews /> </ProtectedRoute>} isAdmin={true} path="/admin/reviews" />
 
         {stripeApiKey && (
           <Route
