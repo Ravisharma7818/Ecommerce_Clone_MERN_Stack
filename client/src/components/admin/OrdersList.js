@@ -17,7 +17,7 @@ const OrdersList = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loading, error, orders } = useSelector(state => state.allOrders);
-    // const { isDeleted } = useSelector(state => state.order)
+    const { isDeleted } = useSelector(state => state.order)
 
     useEffect(() => {
         dispatch(allOrders());
@@ -27,13 +27,13 @@ const OrdersList = () => {
             dispatch(clearErrors())
         }
 
-        // if (isDeleted) {
-        //     alert.success('Order deleted successfully');
-        //     navigate('/admin/orders');
-        //     dispatch({ type: DELETE_ORDER_RESET })
-        // }
+        if (isDeleted) {
+            alert.success('Order deleted successfully');
+            navigate('/admin/orders');
+            dispatch({ type: DELETE_ORDER_RESET })
+        }
 
-    }, [dispatch, alert, error, navigate])
+    }, [dispatch, alert, error, navigate, isDeleted])
 
     const deleteOrderHandler = (id) => {
         dispatch(deleteOrder(id))
