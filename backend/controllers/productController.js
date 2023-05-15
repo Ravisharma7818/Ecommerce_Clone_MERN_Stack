@@ -154,7 +154,7 @@ exports.deleteProduct = catchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler('Product not found', 404));
     }
     console.log("product", product);
-    await product.remove();
+    await product.deleteOne();
 
     // Deleting images associated with the product
     for (let i = 0; i < product.images.length; i++) {
