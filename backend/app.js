@@ -5,6 +5,7 @@ const errorMiddleware = require('./middlewares/errors')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const dotenv = require('dotenv').config({ path: 'backend/.env' });
+const path = require('path')
 
 const cookieParser = require('cookie-parser')
 
@@ -30,6 +31,16 @@ app.use('/api/v1', products);
 app.use('/api/v1', user);
 app.use('/api/v1', order);
 app.use('/api/v1', payment)
+
+// For Production
+
+if (process.env.NODE_ENV === 'PRODUCTION') {
+    app.use(express.static(path.join(__dirname, '../client/build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client/build/index.html'))
+    })
+}
 
 
 // Position is Fixed Here After Routes 

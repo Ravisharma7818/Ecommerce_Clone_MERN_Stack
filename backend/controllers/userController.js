@@ -109,7 +109,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
 
     // Create reset password url
-    const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
+    const resetUrl = `${req.protocol}://${req.get('host')}/password/reset/${resetToken}`;
 
     const message = `Your password reset token is as follow:\n\n${resetUrl}\n\nIf you haven't requested this email, then ignore it.`
 
@@ -289,7 +289,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 // Delete user   =>   /api/v1/admin/user/:id
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id);
-
+    // User 
     if (!user) {
         return next(new ErrorHandler(`User does not found with id: ${req.params.id}`))
     }
