@@ -34,7 +34,7 @@ app.use('/api/v1', payment)
 // For Production
 
 if (process.env.NODE_ENV === 'PRODUCTION') {
-    console.log('Hey I Am Running');
+
     app.use(express.static(path.join(__dirname, '../client/build')))
 
     app.get('*', (req, res) => {
