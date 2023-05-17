@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const dotenv = require('dotenv').config({ path: 'backend/.env' });
 const path = require('path')
-
 const cookieParser = require('cookie-parser')
 
 //  Import Routes
