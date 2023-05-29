@@ -26,7 +26,7 @@ cloudinary.config({
 
 
 const server = app.listen(process.env.PORT, () => {
-    console.log(`Server started on PORT: ${process.env.PORT} ${process.env.NODE_ENV}`)
+    console.log(`Server started on PORT: ${process.env.PORT} ${process.env.NODE_ENV} ${process.env.MONGO_URI}`)
 
 });
 
