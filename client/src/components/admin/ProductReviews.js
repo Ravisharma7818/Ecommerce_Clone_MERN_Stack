@@ -147,7 +147,7 @@ const ProductReviews = () => {
                                 hover
                             />
                         ) : (
-                            <p className="mt-5 text-center">No Reviews.</p>
+                            <p className="mt-5 text-center">No Reviews</p>
                         )}
 
 
