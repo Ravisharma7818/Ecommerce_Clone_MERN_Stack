@@ -44,7 +44,7 @@ const UpdateProduct = () => {
     const { error, product } = useSelector(state => state.productDetails)
     const { loading, error: updateError, isUpdated } = useSelector(state => state.product);
 
-    console.log(id);
+    // console.log(id);
     useEffect(() => {
 
         if (product && product._id !== id) {

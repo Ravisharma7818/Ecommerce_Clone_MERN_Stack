@@ -25,7 +25,7 @@ const UpdateUser = () => {
 
     useEffect(() => {
 
-        console.log(user && user._id !== id);
+        // console.log(user && user._id !== id);
         if (user && user._id !== id) {
             dispatch(getUserDetails(id))
         } else {

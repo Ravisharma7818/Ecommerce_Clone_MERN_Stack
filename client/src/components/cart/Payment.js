@@ -12,6 +12,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { createOrder } from '../../actions/orderActions'
 import { clearErrors } from '../../actions/userActions'
+import { removeAllItemFromCart } from '../../actions/cartActions'
 
 const options = {
     style: {
@@ -80,7 +81,7 @@ const Payment = () => {
 
             const clientSecret = res.data.client_secret;
 
-            console.log(clientSecret);
+            // console.log(clientSecret);
 
             if (!stripe || !elements) {
                 return;
@@ -110,7 +111,8 @@ const Payment = () => {
                     }
 
                     dispatch(createOrder(order))
-
+                    dispatch(removeAllItemFromCart());
+                    // localStorage.removeItem('cartItems')
                     navigate('/success')
                 } else {
                     alert.error('There is some issue while payment processing')
@@ -170,7 +172,7 @@ const Payment = () => {
                                 type="submit"
                                 className="btn btn-block py-3"
                             >
-                                Pay {` - ${orderInfo && orderInfo.totalPrice}`}
+                                Pay {` - ₹${orderInfo && orderInfo.totalPrice}`}
                             </button>
 
                         </form>

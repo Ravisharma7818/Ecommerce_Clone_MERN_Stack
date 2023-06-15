@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
-import logger from 'redux-logger';
 import { newReviewReducer, productsReducer, productReviewsReducer, reviewReducer, newProductReducer, productReducer } from './reducers/productReducers';
 import { productDetailsReducer } from './reducers/productReducers';
 import { allUsersReducer, authReducer, forgotPasswordReducer, userDetailsReducer, userReducer } from './reducers/userReducer';
@@ -40,6 +39,6 @@ let initialState = {
             : {}
     }
 }
-const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(logger, thunk)));
+const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;

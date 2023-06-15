@@ -2,7 +2,7 @@ import React from 'react'
 
 const ListReviews = ({ reviews }) => {
     return (
-        <div class="reviews w-75">
+        <div class="reviews w-75 p-4">
             <h3>Other's Reviews:</h3>
             <hr />
             {reviews && reviews.map(review => (

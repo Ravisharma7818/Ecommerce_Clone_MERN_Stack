@@ -44,13 +44,13 @@ const Cart = () => {
             <MetaData title={'Your Cart'} />
             {cartItems.length === 0 ? <h2 className="mt-5">Your Cart is Empty</h2> : (
                 <Fragment>
-                    <h2 className="mt-5">Your Cart: <b>{cartItems.length} items</b></h2>
+                    <h2 className="mt-5 ml-3">Your Cart: <b>{cartItems.length} items</b></h2>
 
-                    <div className="row d-flex justify-content-between">
-                        <div className="col-12 col-lg-8">
+                    <div className="row d-flex justify-content-between p-2">
+                        <div className="col-12 col-lg-8 p-2">
 
                             {cartItems.map(item => (
-                                <>
+                                <div key={item.product}>
                                     <hr />
 
                                     <div className="cart-item" key={item.product}>
@@ -60,12 +60,12 @@ const Cart = () => {
                                             </div>
 
                                             <div className="col-5 col-lg-3">
-                                                <Link to={`/products/${item.product}`}>{item.name}</Link>
+                                                <Link to={`/product/${item.product}`}>{item.name}</Link>
                                             </div>
 
 
                                             <div className="col-4 col-lg-2 mt-4 mt-lg-0">
-                                                <p id="card_item_price">${item.price}</p>
+                                                <p id="card_item_price">₹{item.price}</p>
                                             </div>
 
                                             <div className="col-4 col-lg-3 mt-4 mt-lg-0">
@@ -85,7 +85,7 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <hr />
-                                </>
+                                </div>
                             ))}
 
                         </div>
@@ -95,7 +95,7 @@ const Cart = () => {
                                 <h4>Order Summary</h4>
                                 <hr />
                                 <p>Subtotal:  <span className="order-summary-values">{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} (Units)</span></p>
-                                <p>Est. total: <span className="order-summary-values">${cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</span></p>
+                                <p>Est. total: <span className="order-summary-values">₹{cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</span></p>
 
                                 <hr />
                                 <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkoutHandler}>Check out</button>

@@ -10,6 +10,7 @@ import Pagination from 'react-js-pagination';
 import { useParams } from 'react-router-dom';
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
+import Footer from './layout/Footer';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
@@ -17,7 +18,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 const Home = () => {
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [price, setPrice] = useState([1, 1000])
+    const [price, setPrice] = useState([1, 1000]);
     const [category, setCategory] = useState('')
     const [rating, setRating] = useState(0)
 
@@ -49,8 +50,8 @@ const Home = () => {
         if (error) {
             return alert.error(error)
         }
-        console.log('price', price);
-        dispatch(getProducts(currentPage, keyword, price, category, rating));
+        // dispatch(getProducts(currentPage, keyword, price, category, rating));
+        dispatch(getProducts(keyword, currentPage, price, category, rating));
 
 
     }, [dispatch, alert, error, currentPage, keyword, price, category, rating])
@@ -85,13 +86,13 @@ const Home = () => {
                                                 <div className="px-5">
                                                     <Range
                                                         marks={{
-                                                            1: `$1`,
-                                                            1000: `$1000`
+                                                            1: `1`,
+                                                            1000: `1000`
                                                         }}
                                                         min={1}
                                                         max={1000}
                                                         defaultValue={[1, 1000]}
-                                                        tipFormatter={value => `$${value}`}
+                                                        tipFormatter={value => `${value}`}
                                                         tipProps={{
                                                             placement: "top",
                                                             visible: true
@@ -99,7 +100,6 @@ const Home = () => {
                                                         value={price}
                                                         onChange={price => setPrice(price)}
                                                     />
-
                                                     <hr className="my-5" />
 
                                                     <div className="mt-5">
@@ -167,6 +167,8 @@ const Home = () => {
                                         </>
                                     ) : (
                                         <>
+
+
                                             {products && products.map(product =>
                                             (
                                                 <Product key={product._id} product={product} col={3} />
@@ -199,6 +201,7 @@ const Home = () => {
                             </div>
                         )}
                     </div>
+                    {/* <Footer /> */}
                 </>
             )}
         </>

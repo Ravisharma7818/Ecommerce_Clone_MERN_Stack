@@ -7,7 +7,7 @@ const cloudinary = require('cloudinary')
 exports.getProducts = catchAsyncError(async (req, res, next) => {
     // return next(new ErrorHandler('Error', 400));
 
-    const resPerPage = 5
+    const resPerPage = 8
     // For Count Documents
     const productsCount = await Product.countDocuments();
 

@@ -105,7 +105,7 @@ const UpdateProfile = () => {
                         </div>
 
                         <div className='form-group'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
+                            <label htmlFor='avatar_upload'>Avatar</label><span style={{ "fontSize": "10px" }}> (less Than 1 Mb Image)</span>
                             <div className='d-flex align-items-center'>
                                 <div>
                                     <figure className='avatar mr-3 item-rtl'>
@@ -127,9 +127,14 @@ const UpdateProfile = () => {
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
                                         Choose Avatar
+
+
                                     </label>
+
                                 </div>
                             </div>
+                            <br></br>
+
                         </div>
 
                         <button type="submit" className="btn update-btn btn-block mt-4 mb-3" disabled={loading ? true : false} >Update</button>

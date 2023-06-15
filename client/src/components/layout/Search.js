@@ -8,12 +8,16 @@ const Search = () => {
 
     const searchHandler = (e) => {
         e.preventDefault()
-
         if (keyword.trim()) {
-            navigate(`/search/${keyword}`)
+            navigate(`/search/${keyword.trim()}`)
+
+
         } else {
             navigate('/')
+            setKeyword(" ");
+
         }
+
     }
 
     return (

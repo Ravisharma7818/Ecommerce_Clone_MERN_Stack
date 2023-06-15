@@ -18,19 +18,25 @@ const Header = () => {
         dispatch(logout());
         alert.success('Logged out successfully.')
     }
+    // console.log(user);
     return (
         <div>
+
 
             <nav className="navbar row">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
-                        <Link to='/'>
-                            <img src="/images/shopit_logo.png" alt="Logo" />
+                        <Link to='/' style={{ textDecoration: 'none' }}>
+                            <span style={{ textDecoration: 'none', color: "rgb(254,189,105)", cursor: "pointer" }}>
+                                Shop Here
+                            </span>
+
+
                         </Link>
                     </div>
                 </div>
 
-                <div className="col-12 col-md-6 mt-2 mt-md-0">
+                <div className="col-12 col-md-6 col-sm-12 mt-2 mt-md-0">
 
                     <Search />
                 </div>

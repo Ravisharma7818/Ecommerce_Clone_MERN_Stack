@@ -118,7 +118,7 @@ function App() {
       {!loading && (!isAuthenticated || user.role !== 'admin') && (
         <Footer />
       )}
-      {/* <Footer /> */}
+
 
 
     </>

@@ -66,6 +66,21 @@ nav {
   font-size: 0.9rem;
 }
 
+@media only screen and (max-width: 600px) {
+  #cart {
+    font-size: 12px;
+    color: white;
+  }
+  #cart_count {
+    background-color: #febd69;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
 /* Home page */
 #products_heading {
   margin-top: 1.8rem;
@@ -118,7 +133,13 @@ footer {
   margin-top: 8rem;
   color: grey;
   bottom: 0;
+  position: relative;
+  left: 0;
+
   width: 100%;
+  background-color: red;
+
+  text-align: center;
 }
 
 /* Ratings */
@@ -187,7 +208,7 @@ footer {
 }
 
 #product_image {
-  margin-top: 9rem;
+  margin-top: 1rem;
 }
 
 /* Loader */
