@@ -42,9 +42,9 @@ const Cart = () => {
     return (
         <>
             <MetaData title={'Your Cart'} />
-            {cartItems.length === 0 ? <h2 className="mt-5">Your Cart is Empty</h2> : (
+            {cartItems.length === 0 ? <h2 className="mt-5 p-4">Your Cart is Empty</h2> : (
                 <Fragment>
-                    <h2 className="mt-5 ml-3">Your Cart: <b>{cartItems.length} items</b></h2>
+                    <h2 className="mt-5 ml-3 p-4">Your Cart: <b>{cartItems.length} items</b></h2>
 
                     <div className="row d-flex justify-content-between p-2">
                         <div className="col-12 col-lg-8 p-2">
