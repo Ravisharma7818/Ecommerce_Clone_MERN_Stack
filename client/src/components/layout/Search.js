@@ -25,7 +25,6 @@ const Search = () => {
 
     }
     useEffect(() => {
-        console.log(keyword);
         handleRouteChange();
     }, [location]);
 
