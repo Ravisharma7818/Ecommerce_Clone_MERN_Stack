@@ -114,13 +114,15 @@ export const newReview = (reviewData) => async (dispatch) => {
 export const getProductReviews = (id) => async (dispatch) => {
     try {
         dispatch({ type: GET_REVIEWS_REQUEST });
+if(id){
 
-        const { data } = await axios.get(`/api/v1/reviews?id=${id}`);
+    const { data } = await axios.get(`/api/v1/reviews?id=${id}`);
 
-        dispatch({
-            type: GET_REVIEWS_SUCCESS,
-            payload: data.reviews,
-        });
+    dispatch({
+        type: GET_REVIEWS_SUCCESS,
+        payload: data.reviews,
+    });
+}
     } catch (error) {
         dispatch({
             type: GET_REVIEWS_FAIL,

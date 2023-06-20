@@ -120,6 +120,8 @@ const NewProduct = () => {
                                         id="name_field"
                                         className="form-control"
                                         value={name}
+                                        required={true}
+
                                         onChange={(e) => setName(e.target.value)}
                                     />
                                 </div>
@@ -131,6 +133,8 @@ const NewProduct = () => {
                                         id="price_field"
                                         className="form-control"
                                         value={price}
+                                        required={true}
+
                                         onChange={(e) => setPrice(e.target.value)}
                                     />
                                 </div>
@@ -141,6 +145,8 @@ const NewProduct = () => {
                                         className="form-control"
                                         id="description_field"
                                         rows="8"
+                                        required={true}
+
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
                                     ></textarea>
@@ -168,6 +174,8 @@ const NewProduct = () => {
                                         id="stock_field"
                                         className="form-control"
                                         value={stock}
+                                        required={true}
+
                                         onChange={(e) => setStock(e.target.value)}
                                     />
                                 </div>
@@ -179,6 +187,8 @@ const NewProduct = () => {
                                         id="seller_field"
                                         className="form-control"
                                         value={seller}
+                                        required={true}
+
                                         onChange={(e) => setSeller(e.target.value)}
                                     />
                                 </div>
@@ -193,6 +203,8 @@ const NewProduct = () => {
                                             className="custom-file-input"
                                             id="customFile"
                                             onChange={onChange}
+                                        required={true}
+
                                             multiple
                                         />
                                         <label className="custom-file-label" htmlFor="customFile">

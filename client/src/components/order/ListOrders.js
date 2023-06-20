@@ -91,6 +91,9 @@ const ListOrders = () => {
                         bordered
                         striped
                         hover
+                        scrollX={true}
+                        scrollY={true}
+                        responsive={true}
                     />
                 )}
             </div>

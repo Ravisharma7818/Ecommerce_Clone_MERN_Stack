@@ -185,7 +185,7 @@ const Home = () => {
 
                         {resPerPage <= count && (
 
-                            <div className="d-flex justify-content-center mt-7">
+                            <div className="d-flex justify-content-center mt-5">
                                 <Pagination
                                     activePage={currentPage}
                                     itemsCountPerPage={resPerPage}

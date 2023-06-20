@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 const Search = () => {
 
     const navigate = useNavigate();
-    const location = useLocation()
 
-    const handleRouteChange = () => {
-        setKeyword('')
-    };
     const [keyword, setKeyword] = useState('');
-
 
     const searchHandler = (e) => {
         e.preventDefault()
@@ -24,11 +19,6 @@ const Search = () => {
         }
 
     }
-    useEffect(() => {
-        handleRouteChange();
-    }, [location]);
-
-
 
     return (
         <form onSubmit={searchHandler} >
@@ -39,7 +29,6 @@ const Search = () => {
                     className="form-control"
                     placeholder="Enter Product Name "
                     onChange={(e) => setKeyword(e.target.value)}
-                // value={keyword}
                 />
                 <div className="input-group-append">
                     <button id="search_btn" className="btn">

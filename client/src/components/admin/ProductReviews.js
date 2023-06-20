@@ -42,15 +42,21 @@ const ProductReviews = () => {
 
 
 
-    }, [dispatch, alert, error, productId, isDeleted, deleteError])
+    }, [dispatch, alert, error, isDeleted, deleteError])
 
     const deleteReviewHandler = (id) => {
-        dispatch(deleteReview(id, productId))
+        if(productId){
+
+            dispatch(deleteReview(id, productId))
+        }
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(getProductReviews(productId))
+        if(productId){
+
+            dispatch(getProductReviews(productId))
+        }
     }
 
     const setReviews = () => {
@@ -122,6 +128,7 @@ const ProductReviews = () => {
                                             className="form-control"
                                             value={productId}
                                             onChange={(e) => setProductId(e.target.value)}
+                                            required={true}
                                         />
                                     </div>
 
@@ -129,7 +136,7 @@ const ProductReviews = () => {
                                         id="search_button"
                                         type="submit"
                                         className="btn btn-primary btn-block py-2"
-                                    >
+                                    >+
                                         SEARCH
                                     </button>
                                 </ form>
@@ -144,6 +151,9 @@ const ProductReviews = () => {
                                 bordered
                                 striped
                                 hover
+                                scrollX={true}
+                                scrollY={true}
+                                responsive={true}
                             />
                         ) : (
                             <p className="mt-5 text-center">No Reviews</p>

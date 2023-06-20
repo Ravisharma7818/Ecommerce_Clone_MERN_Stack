@@ -3,7 +3,7 @@ const Product = require('../models/product');
 const app = require('../app')
 const dotenv = require('dotenv').config({ path: 'backend/.env' });
 
-mongoose.connect("mongodb://localhost:27017/ShopHere", {
+mongoose.connect("mongodb://0.0.0.0:27017/ShopHere", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(console.log('Connected Success')).catch((err) => console.log(err));
