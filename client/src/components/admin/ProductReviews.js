@@ -43,14 +43,19 @@ const ProductReviews = () => {
       alert.success("Review deleted successfully");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch, alert, error, isDeleted, deleteError]);
+    console.log("c1");
+  }, [dispatch, isDeleted, deleteError]);
+
+  if (error) {
+    alert.error(error);
+    dispatch(clearErros());
+  }
 
   const deleteReviewHandler = (id) => {
     if (productId) {
       dispatch(deleteReview(id, productId));
     }
   };
-
   const submitHandler = (e) => {
     e.preventDefault();
     if (productId) {
@@ -124,7 +129,9 @@ const ProductReviews = () => {
               <div className="col-5">
                 <form onSubmit={submitHandler}>
                   <div className="form-group">
-                    <label htmlFor="productId_field">Enter Product ID</label>
+                    <label htmlFor="productId_field">
+                      Enter Valid Product ID
+                    </label>
                     <input
                       type="text"
                       id="productId_field"
